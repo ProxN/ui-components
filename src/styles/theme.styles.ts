@@ -1,10 +1,15 @@
 import { DefaultTheme } from 'styled-components';
 
 const fontSizes = [12, 14, 16, 18, 24, 34, 46, 58, 72];
-const fontFamily = "'Poppins', Helvetica, sans-serif";
+const fontFamily = 'Poppins, Helvetica, sans-serif';
 const fontWeights = [400, 500, 700];
 
 const colors = {
+  default: {
+    light: '#4C5267',
+    main: '#383E56',
+    dark: '#2E3347',
+  },
   primary: {
     light: '#66ABE6',
     main: '#3490de',
@@ -48,6 +53,7 @@ const Theme: DefaultTheme = {
   fontWeights,
   borderRadius: 0.4,
   lineHeight: 1.5,
+  transition: 'all 0.4s cubic-bezier(0.64, 0.11, 0.42, 1)',
 };
 
 export default Theme;

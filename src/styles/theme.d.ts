@@ -1,6 +1,6 @@
 import 'styled-components';
 
-type IColor = {
+export type IColor = {
   light: string;
   main: string;
   dark: string;
@@ -9,6 +9,7 @@ type IColor = {
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
+      default: IColor;
       primary: IColor;
       secondary: IColor;
       danger: IColor;
@@ -25,5 +26,6 @@ declare module 'styled-components' {
     fontFamily: string;
     borderRadius: number;
     lineHeight: number;
+    transition: string;
   }
 }
