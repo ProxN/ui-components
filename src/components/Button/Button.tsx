@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import Loader from '../Loader';
 import { Status, Size } from '../types/commonTypes';
@@ -137,7 +138,9 @@ const getStyledButton = ({ outline, link }: { outline?: boolean; link?: boolean 
   return ColorButton;
 };
 
-const Button: React.FC<ButtonProps> = (props) => {
+type Ref = HTMLButtonElement;
+
+const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
   const {
     color = 'default',
     size = 'middle',
@@ -152,13 +155,13 @@ const Button: React.FC<ButtonProps> = (props) => {
   const StyledButton = getStyledButton({ outline, link });
 
   return (
-    <StyledButton color={color} size={size} outline={outline} {...rest}>
+    <StyledButton ref={ref} color={color} size={size} outline={outline} {...rest}>
       {icon && (
         <IconBox style={{ marginRight: children ? '.8rem' : '0' }}>{icon}</IconBox>
       )}
       {loading ? <Loader size='small' color='default' /> : children}
     </StyledButton>
   );
-};
+});
 
 export default Button;
